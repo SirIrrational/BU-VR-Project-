@@ -4,17 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Base
-  - Sherman
-  - Shell
-  - Shell Lock
-  - Left Hand
-  - Right Hand
-  - Shell Projectile
-  - Breach Open
-  - Breach Closed
-  - Terrain
-  - Scope Zoom Two
+  - Grabbable
   layers:
   - Default
   - TransparentFX
