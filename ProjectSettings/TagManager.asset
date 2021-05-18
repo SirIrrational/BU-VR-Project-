@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Grabbable
+  - Button
+  - VRRig
+  - VRCamera
   layers:
   - Default
   - TransparentFX
