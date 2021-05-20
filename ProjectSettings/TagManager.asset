@@ -8,6 +8,8 @@ TagManager:
   - Button
   - VRRig
   - VRCamera
+  - SceneNode
+  - InformationNode
   layers:
   - Default
   - TransparentFX

@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "360 Image", menuName = "360 Image")]
+[CreateAssetMenu(fileName = "Scene Node", menuName = "Scene Node")]
 public class SceneData : ScriptableObject
 {
-    public Material panoramaMaterial;
+    public string sceneName;
+    public Texture2D panoramaTexture;
     public AudioClip sceneNarration;
 }
