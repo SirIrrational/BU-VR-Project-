@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bec652e8384338e4baa80429ca12dbe3, type: 3}
+  m_Name: SD Lecture Theatre Back
+  m_EditorClassIdentifier: 
+  sceneName: Lecture Theatre Back
+  panoramaImage: {fileID: 2800000, guid: 4a68ac70434386d4fbb095ab660ece06, type: 3}
+  sceneAudio: {fileID: 8300000, guid: 52a3c69afea318146a653a8a66b0e404, type: 3}
+  nodeData:
+  - {fileID: 11400000, guid: 63f7e5fbaa5ec8a4bb5e6eea739cb345, type: 2}

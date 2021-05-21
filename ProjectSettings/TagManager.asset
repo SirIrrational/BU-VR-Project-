@@ -10,6 +10,7 @@ TagManager:
   - VRCamera
   - SceneNode
   - InformationNode
+  - NodeSpawnPoint
   layers:
   - Default
   - TransparentFX
