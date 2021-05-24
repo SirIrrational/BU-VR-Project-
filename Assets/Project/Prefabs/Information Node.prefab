@@ -144,7 +144,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0044780994aae154eb9549707efc4e4d, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -406,13 +406,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: {fileID: 7737078580732758521}
   information: {fileID: 2121569288821133412}
-  vrRigPrefab: {fileID: 3106001376673499007, guid: 108ff198777cf13418350c2367fc9e70, type: 3}
   canvas: {fileID: 5763794656212785783}
   meshRenderer: {fileID: 4208415705059458567}
   lerpTime: 0.9
   colours:
   - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0.8584906, g: 0.068841234, b: 0.64243, a: 0}
+  - {r: 0.91372555, g: 0.18823531, b: 0.454902, a: 1}
 --- !u!1 &5763794656212785783
 GameObject:
   m_ObjectHideFlags: 0

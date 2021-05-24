@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bec652e8384338e4baa80429ca12dbe3, type: 3}
+  m_Name: SD Poole House Lecture Theatre Front
+  m_EditorClassIdentifier: 
+  sceneName: Lecture Theatre Front
+  panoramaImage: {fileID: 2800000, guid: eaf8247bcb09ff34dbf123459d64fe01, type: 3}
+  sceneAudio: {fileID: 8300000, guid: 52a3c69afea318146a653a8a66b0e404, type: 3}
+  nodeData:
+  - {fileID: 11400000, guid: 973d2776c16134d49a8c352ebe531098, type: 2}
+  - {fileID: 11400000, guid: df4d6c9644ef13b4a995d3b63cbc7a1d, type: 2}
