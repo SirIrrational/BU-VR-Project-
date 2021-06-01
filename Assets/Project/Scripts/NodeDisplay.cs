@@ -9,13 +9,8 @@ public class NodeDisplay : MonoBehaviour
     public Text title;
     public Text information;
     public GameObject canvas;
-    public MeshRenderer meshRenderer;
-    [Range(0f, 1f)] public float lerpTime = 0;
-    public Color[] colours;
     AudioSource audioSource;
     AudioClip audioClip;
-    float t = 0f;
-    int colourIndex = 0;
     GameObject sceneNodeSpawnPoint;
 
     void Start()
@@ -27,7 +22,7 @@ public class NodeDisplay : MonoBehaviour
 
     void Update()
     {
-        ColourLerp();
+
     }
 
     public void NodeLoad(NodeData newNodeData)
@@ -54,18 +49,5 @@ public class NodeDisplay : MonoBehaviour
     {
         canvas.SetActive(false);
         audioSource.Stop();
-    }
-
-    void ColourLerp()
-    {
-        meshRenderer.materials[0].color = Color.Lerp(meshRenderer.material.color, colours[colourIndex], lerpTime * Time.deltaTime);
-
-        t = Mathf.Lerp(t, 1f, lerpTime * Time.deltaTime);
-        if (t > 0.9f)
-        {
-            t = 0f;
-            colourIndex++;
-            colourIndex = (colourIndex >= colours.Length) ? 0 : colourIndex;
-        }
     }
 }
