@@ -5,9 +5,20 @@ using UnityEngine.UI;
 
 public class ButtonPress : MonoBehaviour
 {
+    SceneController sceneController;
+
+    void Start()
+    {
+        sceneController = FindObjectOfType<SceneController>();
+    }
 
     public void LoadScene()
     {
-        FindObjectOfType<SceneController>().LoadScene(gameObject.GetComponentInChildren<Text>().text);
+        sceneController.LoadScene(gameObject.GetComponentInChildren<Text>().text);
+    }
+
+    public void MuteAudio()
+    {
+        sceneController.MuteAudio();
     }
 }

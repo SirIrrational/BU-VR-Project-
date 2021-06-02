@@ -8,21 +8,18 @@ public class NodeDisplay : MonoBehaviour
     NodeData nodeData;
     public Text title;
     public Text information;
-    public GameObject canvas;
+    public GameObject node;
     AudioSource audioSource;
     AudioClip audioClip;
     GameObject sceneNodeSpawnPoint;
+    Canvas canvas;
 
     void Start()
     {
         audioSource = gameObject.GetComponent<AudioSource>();
         sceneNodeSpawnPoint = GameObject.FindGameObjectWithTag("NodeSpawnPoint");
         gameObject.transform.LookAt(sceneNodeSpawnPoint.transform.position);
-    }
-
-    void Update()
-    {
-
+        gameObject.GetComponentInChildren<Canvas>().worldCamera = Camera.FindObjectOfType<Camera>();
     }
 
     public void NodeLoad(NodeData newNodeData)
@@ -42,12 +39,12 @@ public class NodeDisplay : MonoBehaviour
                 audioSource.PlayOneShot(nodeData.nodeAudio);
             }
         }
-        canvas.SetActive(true);
+        node.SetActive(true);
     }
 
     public void DeactiveNode()
     {
-        canvas.SetActive(false);
+        node.SetActive(false);
         audioSource.Stop();
     }
 }

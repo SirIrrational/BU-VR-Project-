@@ -11,12 +11,12 @@ public class NodePulse : MonoBehaviour
 
     void Start()
     {
-        gameObject.transform.localScale = new Vector3(initialNodeScale, initialNodeScale, initialNodeScale);
+        gameObject.transform.localScale = new Vector3(initialNodeScale / 5f, initialNodeScale, initialNodeScale);
     }
 
     void Update()
     {
         nodeScale = Mathf.PingPong(Time.time * pulseSpeed, initialNodeScale - pulseNodeScale);
-        gameObject.transform.localScale = new Vector3(nodeScale + initialNodeScale, nodeScale + initialNodeScale, nodeScale + initialNodeScale);
+        gameObject.transform.localScale = new Vector3((nodeScale + initialNodeScale) / 5f, nodeScale + initialNodeScale, nodeScale + initialNodeScale);
     }
 }

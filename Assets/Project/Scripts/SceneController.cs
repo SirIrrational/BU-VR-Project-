@@ -16,6 +16,7 @@ public class SceneController : MonoBehaviour
     GameObject[] nodeSpawned;
     AudioSource[] sceneNodeSpawnedAudioSource;
     Skybox skybox;
+    public int activeScene;
 
     void Start()
     {
@@ -70,9 +71,10 @@ public class SceneController : MonoBehaviour
         {
             if (newButtonName == sceneNodeSpawned[index].name)
             {
+                activeScene = index;
                 sceneNodeSpawned[index].SetActive(true);
                 SkyboxSwap(sceneData[index]);
-                PlayNarration(sceneData[index], sceneNodeSpawnedAudioSource[index]);
+                PlayAudio();
             }
             else
             {
@@ -87,16 +89,22 @@ public class SceneController : MonoBehaviour
         skybox.material.SetTexture("_MainTex", newSceneData.panoramaImage);
     }
 
-    void PlayNarration(SceneData newSceneData, AudioSource newSceneAudioSource)
+    void PlayAudio()
     {
         // Plays audio if a clip exists and the audiosource is not currently playing 
-        if (newSceneData.sceneAudio != null)
+        if (sceneData[activeScene].sceneAudio != null)
         {
-            if (!newSceneAudioSource.isPlaying)
+            if (!sceneNodeSpawnedAudioSource[activeScene].isPlaying)
             {
-                newSceneAudioSource.PlayOneShot(newSceneData.sceneAudio);
+                sceneNodeSpawnedAudioSource[activeScene].PlayOneShot(sceneData[activeScene].sceneAudio);
             }
         }
+    }
+
+    public void MuteAudio()
+    {
+        // Mutes audio based on the audio button pressed
+        sceneNodeSpawnedAudioSource[activeScene].Stop();
     }
 
     Vector3 NodePositionPlacement(NodeData newNodeData)
