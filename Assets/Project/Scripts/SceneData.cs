@@ -6,6 +6,7 @@ using UnityEngine;
 public class SceneData : ScriptableObject
 {
     public string sceneName;
+    public string sceneDescription;
     public Texture2D panoramaImage;
     public AudioClip sceneAudio;
     public NodeData[] nodeData;

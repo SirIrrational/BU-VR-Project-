@@ -2,29 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    public SceneData[] sceneData;
+    SceneData[] sceneData;
     public GameObject sceneNodePrefab;
     public GameObject informationNodePrefab;
     public GameObject vrRigPrefab;
-    public string initialScene;
+    public GameObject navigationUI;
+    public Text sceneDescriptionText;
+    public SceneData initialScene;
+    GameObject[] Buttons;
     GameObject vrCamera;
     GameObject nodeSpawnPoint;
     GameObject[] sceneNodeSpawned;
     GameObject[] nodeSpawned;
     AudioSource[] sceneNodeSpawnedAudioSource;
     Skybox skybox;
-    public int activeScene;
+    int activeScene;
+    bool navigationUIActive = false;
 
     void Start()
     {
-        // Instantiation of variables
-        skybox = vrRigPrefab.GetComponentInChildren<Skybox>();
-        vrCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        // Instantiates arrays linked to present scene data
+        Buttons = GameObject.FindGameObjectsWithTag("Button");
+        sceneData = new SceneData[Buttons.Length];
+        for(int index = 0; index < Buttons.Length; index++)
+        {
+            sceneData[index] = Buttons[index].GetComponent<ThumbnailButton>().sceneData;
+        }
         sceneNodeSpawned = new GameObject[sceneData.Length];
         sceneNodeSpawnedAudioSource = new AudioSource[sceneData.Length];
+        skybox = vrRigPrefab.GetComponentInChildren<Skybox>();
+        vrCamera = GameObject.FindGameObjectWithTag("MainCamera");
 
         // Starts system
         SpawnNodes();
@@ -35,16 +46,15 @@ public class SceneController : MonoBehaviour
     {
         // Updates the VR headset position so its actual position can be accounted for
         nodeSpawnPoint.transform.position = vrCamera.transform.position / 2;
-
     }
 
     void SpawnNodes()
     {
-        // Creates a gameobject based on the position of the VR headset
+        // Creates a gameObject based on the position of the VR headset
         nodeSpawnPoint = new GameObject("Node Spawn Point");
         nodeSpawnPoint.tag = "NodeSpawnPoint";
 
-        // Creates scene based on the related scene data
+        // Creates scenes based on the related scene data
         for (int index = 0; index < sceneData.Length; index++)
         {
             nodeSpawned = new GameObject[sceneData[index].nodeData.Length];
@@ -53,7 +63,7 @@ public class SceneController : MonoBehaviour
             sceneNodeSpawned[index].GetComponent<SceneDisplay>().SceneLoad(sceneData[index]);
             sceneNodeSpawned[index].name = sceneData[index].sceneName;
 
-            // Created the information nodes related to the scene nodes
+            // Creates the information nodes related to the scene data
             for (int secondIndex = 0; secondIndex <sceneData[index].nodeData.Length; secondIndex++)
             {
                 nodeSpawned[secondIndex] = Instantiate(informationNodePrefab, NodePositionPlacement(sceneData[index].nodeData[secondIndex]), Quaternion.identity, sceneNodeSpawned[index].transform);
@@ -64,12 +74,12 @@ public class SceneController : MonoBehaviour
         }
     }
 
-    public void LoadScene(string newButtonName)
+    public void LoadScene(SceneData newSceneName)
     {
         // Loads the scene and its data from a button press
         for (int index = 0; index < sceneNodeSpawned.Length; index++)
         {
-            if (newButtonName == sceneNodeSpawned[index].name)
+            if (newSceneName.sceneName == sceneNodeSpawned[index].name)
             {
                 activeScene = index;
                 sceneNodeSpawned[index].SetActive(true);
@@ -105,6 +115,28 @@ public class SceneController : MonoBehaviour
     {
         // Mutes audio based on the audio button pressed
         sceneNodeSpawnedAudioSource[activeScene].Stop();
+    }
+
+    public void Home()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
+    public void Navigation()
+    {
+        if (navigationUIActive)
+        {
+            navigationUI.SetActive(false);
+        }
+        else if (!navigationUIActive)
+        {
+            navigationUI.SetActive(true);
+        }
+    }
+
+    public void SceneDescription()
+    {
+        sceneDescriptionText.text = sceneData[activeScene].sceneDescription;
     }
 
     Vector3 NodePositionPlacement(NodeData newNodeData)
