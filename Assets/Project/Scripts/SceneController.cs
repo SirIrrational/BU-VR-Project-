@@ -10,8 +10,10 @@ public class SceneController : MonoBehaviour
     public GameObject sceneNodePrefab;
     public GameObject informationNodePrefab;
     public GameObject vrRigPrefab;
-    public GameObject navigationUI;
+    public GameObject tourUI;
+    public GameObject textUI;
     public Text sceneDescriptionText;
+    public Text sceneTitleText;
     public SceneData initialScene;
     GameObject[] Buttons;
     GameObject vrCamera;
@@ -21,7 +23,8 @@ public class SceneController : MonoBehaviour
     AudioSource[] sceneNodeSpawnedAudioSource;
     Skybox skybox;
     int activeScene;
-    bool navigationUIActive = false;
+    bool tourUIActive = true;
+    bool textUIActive = false;
 
     void Start()
     {
@@ -83,6 +86,8 @@ public class SceneController : MonoBehaviour
             {
                 activeScene = index;
                 sceneNodeSpawned[index].SetActive(true);
+                sceneTitleText.text = sceneData[activeScene].sceneName;
+                sceneDescriptionText.text = sceneData[activeScene].sceneDescription;
                 SkyboxSwap(sceneData[index]);
                 PlayAudio();
             }
@@ -119,24 +124,42 @@ public class SceneController : MonoBehaviour
 
     public void Home()
     {
+        // Loads the main menu scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
-    public void Navigation()
+    public void Tour()
     {
-        if (navigationUIActive)
+        // Tour button toggle
+        if (tourUIActive)
         {
-            navigationUI.SetActive(false);
+            tourUI.SetActive(false);
+            tourUIActive = false;
         }
-        else if (!navigationUIActive)
+        else if (!tourUIActive)
         {
-            navigationUI.SetActive(true);
+            tourUI.SetActive(true);
+            textUI.SetActive(false);
+            tourUIActive = true;
+            textUIActive = false;
         }
     }
 
-    public void SceneDescription()
+    public void Text()
     {
-        sceneDescriptionText.text = sceneData[activeScene].sceneDescription;
+        // Text button toggle
+        if (textUIActive)
+        {
+            textUI.SetActive(false);
+            textUIActive = false;
+        }
+        else if (!textUIActive)
+        {
+            textUI.SetActive(true);
+            tourUI.SetActive(false);
+            textUIActive = true;
+            tourUIActive = false;
+        }
     }
 
     Vector3 NodePositionPlacement(NodeData newNodeData)

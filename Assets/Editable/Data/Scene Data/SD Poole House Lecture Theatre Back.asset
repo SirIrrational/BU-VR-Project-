@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: SD Poole House Lecture Theatre Back
   m_EditorClassIdentifier: 
   sceneName: Lecture Theatre Back
+  sceneDescription: This is the back of a lecture theatre
+  sceneThumbnailImage: {fileID: 21300000, guid: d955fcb8a8d7a644cae0f4f3a90acd2b, type: 3}
   panoramaImage: {fileID: 2800000, guid: 4a68ac70434386d4fbb095ab660ece06, type: 3}
   sceneAudio: {fileID: 8300000, guid: 52a3c69afea318146a653a8a66b0e404, type: 3}
   nodeData:

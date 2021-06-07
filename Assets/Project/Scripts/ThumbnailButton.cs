@@ -15,6 +15,8 @@ public class ThumbnailButton : MonoBehaviour
         sceneController = FindObjectOfType<SceneController>();
         text = gameObject.GetComponentInChildren<Text>();
         text.text = sceneData.sceneName;
+        gameObject.GetComponent<Image>().sprite = sceneData.sceneThumbnailImage;
+        gameObject.name = sceneData.sceneName;
     }
 
     public void LoadScene()
