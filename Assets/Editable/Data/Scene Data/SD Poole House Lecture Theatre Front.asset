@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: Lecture Theatre Front
   sceneDescription: This is the front of a lecture theatre
-  sceneThumbnailImage: {fileID: 21300000, guid: 198d8c42488908445be8d5567ce4e04f, type: 3}
+  sceneTourImage: {fileID: 21300000, guid: 198d8c42488908445be8d5567ce4e04f, type: 3}
   panoramaImage: {fileID: 2800000, guid: eaf8247bcb09ff34dbf123459d64fe01, type: 3}
   sceneAudio: {fileID: 8300000, guid: 52a3c69afea318146a653a8a66b0e404, type: 3}
   nodeData:

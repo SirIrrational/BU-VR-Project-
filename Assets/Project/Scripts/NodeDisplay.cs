@@ -34,9 +34,12 @@ public class NodeDisplay : MonoBehaviour
     {
         if (audioClip != null)
         {
-            if (!audioSource.isPlaying)
+            if (SceneController.audioActive)
             {
-                audioSource.PlayOneShot(nodeData.nodeAudio);
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.PlayOneShot(nodeData.nodeAudio);
+                }
             }
         }
         node.SetActive(true);

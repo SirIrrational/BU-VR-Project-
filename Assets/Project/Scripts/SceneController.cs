@@ -15,25 +15,27 @@ public class SceneController : MonoBehaviour
     public Text sceneDescriptionText;
     public Text sceneTitleText;
     public SceneData initialScene;
-    GameObject[] Buttons;
+    GameObject[] buttons;
     GameObject vrCamera;
     GameObject nodeSpawnPoint;
     GameObject[] sceneNodeSpawned;
     GameObject[] nodeSpawned;
     AudioSource[] sceneNodeSpawnedAudioSource;
     Skybox skybox;
-    int activeScene;
-    bool tourUIActive = true;
-    bool textUIActive = false;
+    public static int activeScene;
+    public static bool tourUIActive = true;
+    public static bool infoUIActive = false;
+    public static bool audioActive = true;
 
     void Start()
     {
         // Instantiates arrays linked to present scene data
-        Buttons = GameObject.FindGameObjectsWithTag("Button");
-        sceneData = new SceneData[Buttons.Length];
-        for(int index = 0; index < Buttons.Length; index++)
+        buttons = GameObject.FindGameObjectsWithTag("Button");
+        sceneData = new SceneData[buttons.Length];
+        for(int index = 0; index < buttons.Length; index++)
         {
-            sceneData[index] = Buttons[index].GetComponent<ThumbnailButton>().sceneData;
+            sceneData[index] = buttons[index].GetComponent<TourButton>().sceneData;
+            buttons[index].GetComponent<TourButtonConfiguration>().buttonIndex = index;
         }
         sceneNodeSpawned = new GameObject[sceneData.Length];
         sceneNodeSpawnedAudioSource = new AudioSource[sceneData.Length];
@@ -66,14 +68,18 @@ public class SceneController : MonoBehaviour
             sceneNodeSpawned[index].GetComponent<SceneDisplay>().SceneLoad(sceneData[index]);
             sceneNodeSpawned[index].name = sceneData[index].sceneName;
 
-            // Creates the information nodes related to the scene data
-            for (int secondIndex = 0; secondIndex <sceneData[index].nodeData.Length; secondIndex++)
+            // Checks if any node data i being used based on array length
+            if (sceneData[index].nodeData.Length != 0)
             {
-                nodeSpawned[secondIndex] = Instantiate(informationNodePrefab, NodePositionPlacement(sceneData[index].nodeData[secondIndex]), Quaternion.identity, sceneNodeSpawned[index].transform);
-                NodeRotationPlacement(sceneData[index].nodeData[secondIndex], nodeSpawned[secondIndex]);
-                nodeSpawned[secondIndex].GetComponent<NodeDisplay>().NodeLoad(sceneData[index].nodeData[secondIndex]);
+                // Creates the information nodes related to the scene data
+                for (int secondIndex = 0; secondIndex < sceneData[index].nodeData.Length; secondIndex++)
+                {
+                    nodeSpawned[secondIndex] = Instantiate(informationNodePrefab, NodePositionPlacement(sceneData[index].nodeData[secondIndex]), Quaternion.identity, sceneNodeSpawned[index].transform);
+                    NodeRotationPlacement(sceneData[index].nodeData[secondIndex], nodeSpawned[secondIndex]);
+                    nodeSpawned[secondIndex].GetComponent<NodeDisplay>().NodeLoad(sceneData[index].nodeData[secondIndex]);
+                }
             }
-            nodeSpawned = GameObject.FindGameObjectsWithTag("InformationNode");
+            //nodeSpawned = GameObject.FindGameObjectsWithTag("InformationNode");
         }
     }
 
@@ -85,11 +91,12 @@ public class SceneController : MonoBehaviour
             if (newSceneName.sceneName == sceneNodeSpawned[index].name)
             {
                 activeScene = index;
-                sceneNodeSpawned[index].SetActive(true);
+                sceneNodeSpawned[activeScene].SetActive(true);
                 sceneTitleText.text = sceneData[activeScene].sceneName;
                 sceneDescriptionText.text = sceneData[activeScene].sceneDescription;
-                SkyboxSwap(sceneData[index]);
-                PlayAudio();
+                SkyboxSwap(sceneData[activeScene]);
+                Audio();
+                Tour();
             }
             else
             {
@@ -104,22 +111,39 @@ public class SceneController : MonoBehaviour
         skybox.material.SetTexture("_MainTex", newSceneData.panoramaImage);
     }
 
-    void PlayAudio()
+    void Audio()
     {
         // Plays audio if a clip exists and the audiosource is not currently playing 
         if (sceneData[activeScene].sceneAudio != null)
         {
-            if (!sceneNodeSpawnedAudioSource[activeScene].isPlaying)
+            if (audioActive)
             {
-                sceneNodeSpawnedAudioSource[activeScene].PlayOneShot(sceneData[activeScene].sceneAudio);
+                if (!sceneNodeSpawnedAudioSource[activeScene].isPlaying)
+                {
+                    sceneNodeSpawnedAudioSource[activeScene].PlayOneShot(sceneData[activeScene].sceneAudio);
+                }
+            }
+            else
+            {
+                // Mutes audio based on the audio button pressed
+                sceneNodeSpawnedAudioSource[activeScene].Stop();
             }
         }
     }
 
-    public void MuteAudio()
+    public void PlayAudio()
     {
-        // Mutes audio based on the audio button pressed
-        sceneNodeSpawnedAudioSource[activeScene].Stop();
+        // Audio play toggle
+        if (audioActive)
+        {
+            audioActive = false;
+        }
+        else
+        {
+            audioActive = true;
+        }
+
+        Audio();
     }
 
     public void Home()
@@ -141,23 +165,23 @@ public class SceneController : MonoBehaviour
             tourUI.SetActive(true);
             textUI.SetActive(false);
             tourUIActive = true;
-            textUIActive = false;
+            infoUIActive = false;
         }
     }
 
-    public void Text()
+    public void Info()
     {
         // Text button toggle
-        if (textUIActive)
+        if (infoUIActive)
         {
             textUI.SetActive(false);
-            textUIActive = false;
+            infoUIActive = false;
         }
-        else if (!textUIActive)
+        else
         {
             textUI.SetActive(true);
             tourUI.SetActive(false);
-            textUIActive = true;
+            infoUIActive = true;
             tourUIActive = false;
         }
     }

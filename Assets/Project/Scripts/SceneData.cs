@@ -7,7 +7,7 @@ public class SceneData : ScriptableObject
 {
     public string sceneName;
     public string sceneDescription;
-    public Sprite sceneThumbnailImage;
+    public Sprite sceneTourImage;
     public Texture2D panoramaImage;
     public AudioClip sceneAudio;
     public NodeData[] nodeData;

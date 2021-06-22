@@ -11,6 +11,10 @@ TagManager:
   - SceneNode
   - InformationNode
   - NodeSpawnPoint
+  - Audio
+  - Home
+  - Tour
+  - Info
   layers:
   - Default
   - TransparentFX
