@@ -108,7 +108,7 @@ public class SceneController : MonoBehaviour
     void SkyboxSwap (SceneData newSceneData)
     {
         // Swaps 360 image to the stored scene data
-        skybox.material.SetTexture("_MainTex", newSceneData.panoramaImage);
+        skybox.material.SetTexture("_MainTex", newSceneData.scenePanoramaImage);
     }
 
     void Audio()

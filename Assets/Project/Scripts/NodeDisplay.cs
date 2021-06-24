@@ -25,8 +25,8 @@ public class NodeDisplay : MonoBehaviour
     public void NodeLoad(NodeData newNodeData)
     {
         nodeData = newNodeData;
-        title.text = nodeData.title;
-        information.text = nodeData.information;
+        title.text = nodeData.nodeTitle;
+        information.text = nodeData.nodeInformation;
         audioClip = nodeData.nodeAudio;
     }
 

@@ -17,7 +17,7 @@ public class TourButton : MonoBehaviour
         text = gameObject.GetComponentInChildren<Text>();
         text.text = sceneData.sceneName;
         images = gameObject.GetComponentsInChildren<Image>();
-        images[1].sprite = sceneData.sceneTourImage;
+        images[1].sprite = sceneData.sceneButtonImage;
         gameObject.name = sceneData.sceneName;
     }
 

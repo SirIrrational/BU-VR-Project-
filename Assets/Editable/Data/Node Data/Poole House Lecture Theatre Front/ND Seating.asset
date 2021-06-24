@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 606fad2e4980f5443bad1427581d74a0, type: 3}
   m_Name: ND Seating
   m_EditorClassIdentifier: 
-  title: Theatre Seating
-  information: All theatres are designed to accomadate a host of events, with 100+
-    seating available
+  nodeTitle: Seating
+  nodeInformation: All lecture theatres are build to fit 100+ individuals
   nodeAudio: {fileID: 8300000, guid: b81b155e4738f46438864bc5bb050cef, type: 3}
   nodeDistance: 3
   nodeOrbitLocation: 300

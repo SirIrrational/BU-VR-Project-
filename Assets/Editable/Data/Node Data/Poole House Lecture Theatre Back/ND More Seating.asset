@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 606fad2e4980f5443bad1427581d74a0, type: 3}
   m_Name: ND More Seating
   m_EditorClassIdentifier: 
-  title: Lots of seating
-  information: Each lecture theatre has a lot of seating as you could imagine
+  nodeTitle: More Seating
+  nodeInformation: Seating, seating, seating, as you can see there is a lot
   nodeAudio: {fileID: 8300000, guid: b81b155e4738f46438864bc5bb050cef, type: 3}
   nodeDistance: 3
   nodeOrbitLocation: 90
