@@ -362,6 +362,7 @@ GameObject:
   - component: {fileID: 3106001377554110629}
   - component: {fileID: 3106001377554110628}
   - component: {fileID: 666155163905928547}
+  - component: {fileID: 6111334738978592429}
   m_Layer: 0
   m_Name: VR Camera
   m_TagString: MainCamera
@@ -492,6 +493,19 @@ Skybox:
   m_GameObject: {fileID: 3106001377554110635}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 2100000, guid: 5c417114e500b954882bc0172bb05a28, type: 2}
+--- !u!135 &6111334738978592429
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3106001377554110635}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3308558798075244448
 GameObject:
   m_ObjectHideFlags: 0

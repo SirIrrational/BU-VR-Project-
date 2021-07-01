@@ -15,6 +15,7 @@ TagManager:
   - Home
   - Tour
   - Info
+  - Counter
   layers:
   - Default
   - TransparentFX
