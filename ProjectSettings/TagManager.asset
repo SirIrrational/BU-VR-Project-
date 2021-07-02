@@ -16,6 +16,12 @@ TagManager:
   - Tour
   - Info
   - Counter
+  - SphereSpawn
+  - SquareSpawn
+  - Square
+  - Sphere
+  - Bounds
+  - Hands
   layers:
   - Default
   - TransparentFX

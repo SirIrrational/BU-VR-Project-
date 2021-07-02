@@ -7,19 +7,43 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public GameObject playButton;
+    public GameObject sphere;
+    public GameObject[] squares;
     public static int sphereScore = 0;
     public static int shotsFired = 0;
+    public static int spheresPresent;
+    public int spheresToSpawn;
+    public int minSpawnDelay;
+    public int maxSpawnDelay;
+    int spheresSpawned;
     GameObject[] counters;
+    GameObject[] sphereSpawns;
+    GameObject[] squareSpawns;
+    Transform[] sphereSpawnTransforms;
+    Transform[] squareSpawnTransforms;
     Counter[] counter;
+    bool endActivated = false;
     
     void Start()
     {
         // Instantiates arrays linked to both counters
         counters = GameObject.FindGameObjectsWithTag("Counter");
+        sphereSpawns = GameObject.FindGameObjectsWithTag("SphereSpawn");
+        squareSpawns = GameObject.FindGameObjectsWithTag("SquareSpawn");
         counter = new Counter[counters.Length];
+        sphereSpawnTransforms = new Transform[sphereSpawns.Length];
+        squareSpawnTransforms = new Transform[squareSpawns.Length];
         for (int index = 0; index < counters.Length; index++)
         {
             counter[index] = counters[index].GetComponent<Counter>();
+        }
+        for (int index = 0; index < sphereSpawns.Length; index++)
+        {
+            sphereSpawnTransforms[index] = sphereSpawns[index].transform;
+        }
+        for (int index = 0; index < squareSpawns.Length; index++)
+        {
+            squareSpawnTransforms[index] = squareSpawns[index].transform;
         }
         Restart();
     }
@@ -29,6 +53,11 @@ public class GameController : MonoBehaviour
         // Send both scores to UI
         counter[0].value.text = sphereScore.ToString();
         counter[1].value.text = shotsFired.ToString();
+
+        if (endActivated)
+        {
+            End();
+        }
     }
 
     // Starts the game
@@ -41,6 +70,66 @@ public class GameController : MonoBehaviour
         counter[1].Title.text = "Shots Fired";
         counter[0].image.enabled = false;
         counter[1].image.enabled = false;
+        StartCoroutine(SpawnDelay());
+    }
+
+    public void ObjectHit()
+    {
+
+    }
+
+    void SpawnObjects()
+    {
+        switch (Random.Range(0 , 4))
+        {
+            case 0:
+                SphereSpawn();
+                break;
+
+            case 1:
+                SphereSpawn();
+                break;
+
+            case 2:
+                SphereSpawn();
+                break;
+
+            case 3:
+                SquareSpawn();
+                break;
+        }
+
+        if (spheresSpawned < spheresToSpawn)
+        {
+            StartCoroutine(SpawnDelay());
+        }
+
+        if (spheresSpawned >= spheresToSpawn)
+        {
+            endActivated = true;
+        }
+    }
+
+    void SphereSpawn()
+    {
+        GameObject sphereTarget = Instantiate(sphere, sphereSpawnTransforms[Random.Range(0, sphereSpawnTransforms.Length)]);
+        spheresSpawned += 1;
+        spheresPresent += 1;
+    }
+
+    void SquareSpawn()
+    {
+        GameObject squareTarget = Instantiate(squares[Random.Range(0, squares.Length)], squareSpawnTransforms[Random.Range(0, squareSpawnTransforms.Length)]);
+
+        switch (Random.Range(0, 2))
+        {
+            case 0:
+                squareTarget.transform.Rotate(0f, 0f, 0f);
+                break;
+            case 1:
+                squareTarget.transform.Rotate(90f, 0f, 0f);
+                break;
+        }
     }
 
     public void Home()
@@ -57,5 +146,22 @@ public class GameController : MonoBehaviour
         counter[1].Title.text = "Dodge";
         counter[0].image.enabled = true;
         counter[1].image.enabled = true;
+        spheresSpawned = 0;
+        spheresPresent = 0;
+        endActivated = false;
+    }
+
+    void End()
+    {
+        if (spheresPresent <= 0)
+        {
+            Debug.Log("End");
+        }
+    }
+
+    IEnumerator SpawnDelay()
+    {
+        yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
+        SpawnObjects();
     }
 }
