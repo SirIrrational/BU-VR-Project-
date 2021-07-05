@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class GameController : MonoBehaviour
 {
+    public GameObject vrRigPrefab;
     public GameObject playButton;
     public GameObject sphere;
     public GameObject[] squares;
-    public static int sphereScore = 0;
-    public static int shotsFired = 0;
-    public static int spheresPresent;
     public int spheresToSpawn;
     public int minSpawnDelay;
     public int maxSpawnDelay;
+    public AudioClip music;
+    public static int sphereScore = 0;
+    public static int shotsFired = 0;
+    public static int spheresPresent;
     int spheresSpawned;
     GameObject[] counters;
     GameObject[] sphereSpawns;
@@ -23,6 +26,8 @@ public class GameController : MonoBehaviour
     Transform[] squareSpawnTransforms;
     Counter[] counter;
     bool endActivated = false;
+    XRRayInteractor[] xrRayInteractor;
+    AudioSource audioSource;
     
     void Start()
     {
@@ -33,6 +38,7 @@ public class GameController : MonoBehaviour
         counter = new Counter[counters.Length];
         sphereSpawnTransforms = new Transform[sphereSpawns.Length];
         squareSpawnTransforms = new Transform[squareSpawns.Length];
+        xrRayInteractor = vrRigPrefab.GetComponentsInChildren<XRRayInteractor>();
         for (int index = 0; index < counters.Length; index++)
         {
             counter[index] = counters[index].GetComponent<Counter>();
@@ -45,6 +51,7 @@ public class GameController : MonoBehaviour
         {
             squareSpawnTransforms[index] = squareSpawns[index].transform;
         }
+        audioSource = gameObject.GetComponent<AudioSource>();
         Restart();
     }
 
@@ -63,6 +70,10 @@ public class GameController : MonoBehaviour
     // Starts the game
     public void Game()
     {
+        for (int index = 0; index < xrRayInteractor.Length; index++)
+        {
+            xrRayInteractor[index].enabled = false;
+        }
         playButton.SetActive(false);
         sphereScore = 0;
         shotsFired = 0;
@@ -71,11 +82,7 @@ public class GameController : MonoBehaviour
         counter[0].image.enabled = false;
         counter[1].image.enabled = false;
         StartCoroutine(SpawnDelay());
-    }
-
-    public void ObjectHit()
-    {
-
+        audioSource.PlayOneShot(music);
     }
 
     void SpawnObjects()
@@ -155,6 +162,10 @@ public class GameController : MonoBehaviour
     {
         if (spheresPresent <= 0)
         {
+            for (int index = 0; index < xrRayInteractor.Length; index++)
+            {
+                xrRayInteractor[index].enabled = true;
+            }
             Debug.Log("End");
         }
     }

@@ -3,7 +3,27 @@ guid: 85075132ff805714ca59771342896e2a
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Beyond
+    second: {fileID: 2100000, guid: 4d1d45abf38a17646afb2926225f5b68, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Emissive
+    second: {fileID: 2100000, guid: 95d5fe2a02a57644c90c7d7c463b0c87, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Room
+    second: {fileID: 2100000, guid: 4d1d45abf38a17646afb2926225f5b68, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Warp
+    second: {fileID: 2100000, guid: 05caa1ffb35200040bd378842f6dfaf2, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
