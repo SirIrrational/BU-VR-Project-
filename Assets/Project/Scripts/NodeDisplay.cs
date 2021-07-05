@@ -10,7 +10,6 @@ public class NodeDisplay : MonoBehaviour
     public Text information;
     public GameObject node;
     AudioSource audioSource;
-    AudioClip audioClip;
     GameObject sceneNodeSpawnPoint;
     Canvas canvas;
 
@@ -27,21 +26,10 @@ public class NodeDisplay : MonoBehaviour
         nodeData = newNodeData;
         title.text = nodeData.nodeTitle;
         information.text = nodeData.nodeInformation;
-        audioClip = nodeData.nodeAudio;
     }
 
     public void ActivateNode()
     {
-        if (audioClip != null)
-        {
-            if (SceneController.audioActive)
-            {
-                if (!audioSource.isPlaying)
-                {
-                    audioSource.PlayOneShot(nodeData.nodeAudio);
-                }
-            }
-        }
         node.SetActive(true);
     }
 
