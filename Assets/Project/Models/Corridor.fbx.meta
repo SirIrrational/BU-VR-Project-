@@ -7,23 +7,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_Beyond
-    second: {fileID: 2100000, guid: 4d1d45abf38a17646afb2926225f5b68, type: 2}
+      name: M_Arrows
+    second: {fileID: 2100000, guid: 001661f19e3b8cb45878d65ede931e90, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Corridor
+    second: {fileID: 2100000, guid: 650803af200fb934cbcad36cb35418a9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Emissive
-    second: {fileID: 2100000, guid: 95d5fe2a02a57644c90c7d7c463b0c87, type: 2}
+    second: {fileID: 2100000, guid: 21a955b2e5d130447bffb62338a7a725, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_Room
-    second: {fileID: 2100000, guid: 4d1d45abf38a17646afb2926225f5b68, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: M_Warp
-    second: {fileID: 2100000, guid: 05caa1ffb35200040bd378842f6dfaf2, type: 2}
+      name: M_Lane
+    second: {fileID: 2100000, guid: 650803af200fb934cbcad36cb35418a9, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

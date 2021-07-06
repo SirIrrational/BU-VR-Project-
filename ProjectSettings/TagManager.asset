@@ -22,6 +22,9 @@ TagManager:
   - Sphere
   - Bounds
   - Hands
+  - Gun
+  - Projectile
+  - Scene
   layers:
   - Default
   - TransparentFX

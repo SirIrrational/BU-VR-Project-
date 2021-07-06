@@ -30,39 +30,19 @@ public class Objects : MonoBehaviour
     {
         if (collider.tag == "Bounds")
         {
-            switch (gameObject.tag)
+            if (gameObject.tag == "Sphere")
             {
-                case "Sphere":
-                    GameController.spheresPresent -= 1;
-                    Destroy(gameObject);
-                    break;
-                case "Square":
-                    Destroy(gameObject);
-                    break;
+                GameController.spheresPresent -= 1;
             }
+
+            Destroy(gameObject);
         }
 
-        if (collider.tag == "Projectile")
+        if (collider.tag == "Hands" || collider.tag == "MainCamera" || collider.tag == "Gun")
         {
-            switch (gameObject.tag)
+            if (gameObject.tag == "Square")
             {
-                case "Sphere":
-                    GameController.sphereScore += 10;
-                    Destroy(gameObject);
-                    break;
-                case "Square":
-                    GameController.sphereScore -= 10;
-                    break;
-            }
-        }
-
-        if (collider.tag == "Hands" || collider.tag == "MainCamera")
-        {
-            switch (gameObject.tag)
-            {
-                case "Square":
-                    GameController.sphereScore -= 50;
-                    break;
+                GameController.sphereScore -= 20;
             }
         }
     }

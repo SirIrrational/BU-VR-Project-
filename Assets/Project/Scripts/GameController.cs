@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
 {
     public GameObject vrRigPrefab;
     public GameObject playButton;
+    public GameObject homeButton;
     public GameObject sphere;
     public GameObject[] squares;
     public int spheresToSpawn;
@@ -149,6 +150,7 @@ public class GameController : MonoBehaviour
     void Restart()
     {
         playButton.SetActive(true);
+        homeButton.SetActive(false);
         counter[0].Title.text = "Shoot";
         counter[1].Title.text = "Dodge";
         counter[0].image.enabled = true;
@@ -166,7 +168,7 @@ public class GameController : MonoBehaviour
             {
                 xrRayInteractor[index].enabled = true;
             }
-            Debug.Log("End");
+            homeButton.SetActive(true);
         }
     }
 

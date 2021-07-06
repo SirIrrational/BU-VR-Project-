@@ -8,11 +8,19 @@ public class TunnelMovement : MonoBehaviour
     public float speedY;
     float offsetX;
     float offsetY;
+    float originX;
+    float originY;
+
+    void Start()
+    {
+        originX = gameObject.GetComponent<MeshRenderer>().materials[2].mainTextureOffset.x;
+        originY = gameObject.GetComponent<MeshRenderer>().materials[2].mainTextureOffset.y;
+    }
 
     void FixedUpdate()
     {
-        float offsetX = Time.time * speedX;
-        float offsetY = Time.time * speedY;
+        offsetX = Time.time * speedX + originX;
+        offsetY = Time.time * speedY + originY;
         gameObject.GetComponent<MeshRenderer>().materials[2].mainTextureOffset = new Vector2(offsetX, offsetY);
     }
 }
