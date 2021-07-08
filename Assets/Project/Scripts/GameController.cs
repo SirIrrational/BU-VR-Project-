@@ -15,7 +15,6 @@ public class GameController : MonoBehaviour
     public int spheresToSpawn;
     public int minSpawnDelay;
     public int maxSpawnDelay;
-    public AudioClip music;
     public static int sphereScore = 0;
     public static int shotsFired = 0;
     public static int spheresPresent;
@@ -83,7 +82,7 @@ public class GameController : MonoBehaviour
         counter[0].image.enabled = false;
         counter[1].image.enabled = false;
         StartCoroutine(SpawnDelay());
-        audioSource.PlayOneShot(music);
+        audioSource.Play();
     }
 
     void SpawnObjects()
@@ -169,6 +168,7 @@ public class GameController : MonoBehaviour
                 xrRayInteractor[index].enabled = true;
             }
             homeButton.SetActive(true);
+            audioSource.Stop();
         }
     }
 

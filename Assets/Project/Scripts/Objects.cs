@@ -6,10 +6,14 @@ public class Objects : MonoBehaviour
 {
     GameController gameController;
     public int objectSpeed;
+    AudioSource audioSource;
+    public AudioClip squareAudioClip;
+    public AudioClip sphereAudioClip;
 
     void Start()
     {
         gameController = FindObjectOfType<GameController>();
+        audioSource = gameController.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -43,6 +47,20 @@ public class Objects : MonoBehaviour
             if (gameObject.tag == "Square")
             {
                 GameController.sphereScore -= 20;
+                audioSource.PlayOneShot(squareAudioClip);
+            }
+        }
+
+        if (collider.tag == "Projectile")
+        {
+            switch (gameObject.tag)
+            {
+                case "Sphere":
+                    audioSource.PlayOneShot(sphereAudioClip);
+                    break;
+                case "Square":
+                    audioSource.PlayOneShot(squareAudioClip);
+                    break;
             }
         }
     }

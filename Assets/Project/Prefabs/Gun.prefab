@@ -375,7 +375,7 @@ MonoBehaviour:
   projectile: {fileID: 6854939885500483196, guid: f4d44a054e7311d4da0b4cd89e8a0e53, type: 3}
   barrelPivot: {fileID: 2010996972176496317}
   projectileSpawnTransform: {fileID: 8259169646710718083}
-  fireAudio: {fileID: 0}
+  fireAudioClip: {fileID: 8300000, guid: c456f7a82efb06b48b61651fc4003408, type: 3}
 --- !u!82 &1840868528378883482
 AudioSource:
   m_ObjectHideFlags: 0
