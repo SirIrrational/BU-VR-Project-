@@ -957,8 +957,8 @@ GameObject:
   m_Component:
   - component: {fileID: 35762666}
   m_Layer: 0
-  m_Name: Sphere Spawn (7)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (7)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1134,8 +1134,8 @@ GameObject:
   m_Component:
   - component: {fileID: 47222393}
   m_Layer: 0
-  m_Name: Sphere Spawn (25)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (25)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1230,8 +1230,8 @@ GameObject:
   m_Component:
   - component: {fileID: 49084708}
   m_Layer: 0
-  m_Name: Sphere Spawn (34)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (34)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2394,11 +2394,9 @@ Transform:
   m_LocalPosition: {x: -22.48, y: 218.03, z: 380}
   m_LocalScale: {x: 90, y: 90, z: 90}
   m_Children:
-  - {fileID: 809413970}
   - {fileID: 375383681}
   - {fileID: 1909952821}
   - {fileID: 1114213544}
-  - {fileID: 1030380790}
   m_Father: {fileID: 1926823880}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2588,14 +2586,24 @@ MonoBehaviour:
   vrRigPrefab: {fileID: 1549124968}
   playButton: {fileID: 158715208}
   homeButton: {fileID: 213018084}
-  sphere: {fileID: 4479887049783914598, guid: e10cbccd38453af41976cbfb01ba915b, type: 3}
-  squares:
+  counter: {fileID: 994944207}
+  square: {fileID: 3021573494397276167, guid: aef65e1bef6586c46bf82b6d53d590a3, type: 3}
+  rectangles:
   - {fileID: 7743714973903109521, guid: 3ba656cc22f80044bb037a8441867aa2, type: 3}
   - {fileID: 1351960306137717597, guid: c2c23b2350ffae540ac1d0391131b1f3, type: 3}
   - {fileID: 3990090085709278563, guid: 5677ac8d490f2424d84df5ddbc11d274, type: 3}
-  spheresToSpawn: 40
+  squaresToSpawn: 40
   minSpawnDelay: 1
   maxSpawnDelay: 4
+  colourLerpTime: 10
+  levelSpeed: 040000000600000008000000
+  levelRequiredScore: 000000001e0000003c000000
+  levelColours:
+  - {r: 0.83137256, g: 0, b: 0.06666667, a: 1}
+  - {r: 0.11743506, g: 0.75097644, b: 0.8584906, a: 1}
+  - {r: 1, g: 0, b: 0.8675709, a: 1}
+  squareAudioClip: {fileID: 8300000, guid: d4f09000f21dc024681f96ccd80d8f71, type: 3}
+  rectangleAudioClip: {fileID: 8300000, guid: 0f3df064015782c4faf680c2fa16ff91, type: 3}
 --- !u!82 &95529282
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2702,8 +2710,8 @@ GameObject:
   m_Component:
   - component: {fileID: 95670173}
   m_Layer: 0
-  m_Name: Sphere Spawn (11)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (11)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2930,8 +2938,8 @@ GameObject:
   m_Component:
   - component: {fileID: 105173263}
   m_Layer: 0
-  m_Name: Sphere Spawn (8)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (8)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3427,8 +3435,8 @@ GameObject:
   m_Component:
   - component: {fileID: 116145793}
   m_Layer: 0
-  m_Name: Sphere Spawn (18)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (18)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4121,7 +4129,7 @@ Transform:
   m_Children:
   - {fileID: 773709231}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &156616780 stripped
 Transform:
@@ -4418,8 +4426,8 @@ GameObject:
   m_Component:
   - component: {fileID: 175695320}
   m_Layer: 0
-  m_Name: Sphere Spawn (32)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (32)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6343,8 +6351,8 @@ GameObject:
   m_Component:
   - component: {fileID: 247310356}
   m_Layer: 0
-  m_Name: Sphere Spawn (17)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (17)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6434,8 +6442,8 @@ GameObject:
   m_Component:
   - component: {fileID: 249302027}
   m_Layer: 0
-  m_Name: Square Spawn (1)
-  m_TagString: SquareSpawn
+  m_Name: Rectangle Spawn (0)
+  m_TagString: RectangleSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6663,8 +6671,8 @@ GameObject:
   m_Component:
   - component: {fileID: 255630574}
   m_Layer: 0
-  m_Name: Sphere Spawn (19)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (19)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7599,6 +7607,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc6e503903e70674dbdc3f0d993d5115, type: 3}
+--- !u!1 &302666025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 302666026}
+  m_Layer: 0
+  m_Name: Lights
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &302666026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302666025}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1595607101}
+  m_Father: {fileID: 1761345475}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &303606389
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7670,8 +7709,8 @@ GameObject:
   m_Component:
   - component: {fileID: 303675161}
   m_Layer: 0
-  m_Name: Sphere Spawn (9)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (9)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9357,7 +9396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3122963482877204458, guid: 1f7654b88e4561e4bb14a79dacc24e76, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.968
+      value: -4.327
       objectReference: {fileID: 0}
     - target: {fileID: 3122963482877204458, guid: 1f7654b88e4561e4bb14a79dacc24e76, type: 3}
       propertyPath: m_LocalRotation.x
@@ -9377,7 +9416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3122963482877204458, guid: 1f7654b88e4561e4bb14a79dacc24e76, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3122963482877204458, guid: 1f7654b88e4561e4bb14a79dacc24e76, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9393,11 +9432,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3122963482877204458, guid: 1f7654b88e4561e4bb14a79dacc24e76, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.1965
+      value: 0.165
       objectReference: {fileID: 0}
     - target: {fileID: 3122963482877204458, guid: 1f7654b88e4561e4bb14a79dacc24e76, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.193
+      value: 0.426
       objectReference: {fileID: 0}
     - target: {fileID: 3122963482877204458, guid: 1f7654b88e4561e4bb14a79dacc24e76, type: 3}
       propertyPath: m_SizeDelta.x
@@ -11556,8 +11595,8 @@ GameObject:
   m_Component:
   - component: {fileID: 465961323}
   m_Layer: 0
-  m_Name: Sphere Spawn (0)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (0)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13308,8 +13347,8 @@ GameObject:
   m_Component:
   - component: {fileID: 541289737}
   m_Layer: 0
-  m_Name: Square Spawn (2)
-  m_TagString: SquareSpawn
+  m_Name: Rectangle Spawn (1)
+  m_TagString: RectangleSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13958,8 +13997,8 @@ GameObject:
   m_Component:
   - component: {fileID: 569447306}
   m_Layer: 0
-  m_Name: Sphere Spawn (4)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (4)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14913,8 +14952,8 @@ GameObject:
   m_Component:
   - component: {fileID: 604000650}
   m_Layer: 0
-  m_Name: Sphere Spawn (3)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (3)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15070,8 +15109,8 @@ GameObject:
   m_Component:
   - component: {fileID: 610596425}
   m_Layer: 0
-  m_Name: Sphere Spawn (31)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (31)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15743,7 +15782,7 @@ Transform:
   - {fileID: 1786695316}
   - {fileID: 1809441088}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &646438730
 PrefabInstance:
@@ -16349,8 +16388,8 @@ GameObject:
   m_Component:
   - component: {fileID: 665333418}
   m_Layer: 0
-  m_Name: Sphere Spawn (14)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (14)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19549,8 +19588,8 @@ GameObject:
   m_Component:
   - component: {fileID: 792997933}
   m_Layer: 0
-  m_Name: Sphere Spawn (24)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (24)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20082,81 +20121,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc6e503903e70674dbdc3f0d993d5115, type: 3}
---- !u!1 &809413969
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 809413970}
-  - component: {fileID: 809413972}
-  - component: {fileID: 809413971}
-  m_Layer: 5
-  m_Name: Setting Bar Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &809413970
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809413969}
-  m_LocalRotation: {x: 0.57357645, y: -0, z: -0, w: 0.8191521}
-  m_LocalPosition: {x: 0, y: 0, z: -4.964757}
-  m_LocalScale: {x: 0.0003551473, y: 0.00039473604, z: 0.00039473604}
-  m_Children: []
-  m_Father: {fileID: 91024384}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 25, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.18904081, y: 0.18457031}
-  m_SizeDelta: {x: 7305, y: 1920}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &809413971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809413969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2d9f78df3d3651f4c910743e7ac3b297, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &809413972
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809413969}
-  m_CullTransparentMesh: 0
 --- !u!1001 &814240489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21331,8 +21295,8 @@ GameObject:
   m_Component:
   - component: {fileID: 848302138}
   m_Layer: 0
-  m_Name: Sphere Spawn (13)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (13)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23156,8 +23120,8 @@ GameObject:
   m_Component:
   - component: {fileID: 932013629}
   m_Layer: 0
-  m_Name: Sphere Spawn (20)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (20)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24171,8 +24135,8 @@ GameObject:
   m_Component:
   - component: {fileID: 969434681}
   m_Layer: 0
-  m_Name: Sphere Spawn (15)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (15)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24521,6 +24485,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc6e503903e70674dbdc3f0d993d5115, type: 3}
+--- !u!1 &994944207 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4278197582711553574, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
+  m_PrefabInstance: {fileID: 1114213543}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &996068916 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1697742352375668198, guid: bc6e503903e70674dbdc3f0d993d5115, type: 3}
@@ -25384,108 +25353,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc6e503903e70674dbdc3f0d993d5115, type: 3}
---- !u!1001 &1030380789
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 91024384}
-    m_Modifications:
-    - target: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.96398
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.57357645
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.8191521
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.18484
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 6586.1973
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 1742.9707
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4278197582711553574, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
-      propertyPath: m_Name
-      value: Counter (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
---- !u!224 &1030380790 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
-  m_PrefabInstance: {fileID: 1030380789}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1031731901
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26212,8 +26079,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1055796521}
   m_Layer: 0
-  m_Name: Sphere Spawn (10)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (10)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27179,7 +27046,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -27195,7 +27062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.61276
+      value: 0.173
       objectReference: {fileID: 0}
     - target: {fileID: 4278197582711553573, guid: f7e0c442eeca15a489c07105f663e634, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -28102,8 +27969,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1147265737}
   m_Layer: 0
-  m_Name: Sphere Spawn (28)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (28)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28621,7 +28488,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1166620879
 PrefabInstance:
@@ -28816,7 +28683,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1173237968
 PrefabInstance:
@@ -29535,8 +29402,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1200524099}
   m_Layer: 0
-  m_Name: Sphere Spawn (30)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (30)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31324,8 +31191,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1265903520}
   m_Layer: 0
-  m_Name: Sphere Spawn (6)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (6)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31681,8 +31548,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1282151052}
   m_Layer: 0
-  m_Name: Sphere Spawn (22)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (22)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33757,8 +33624,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1362751758}
   m_Layer: 0
-  m_Name: Sphere Spawn (29)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (29)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34746,8 +34613,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1393535449}
   m_Layer: 0
-  m_Name: Sphere Spawn (16)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (16)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37102,7 +36969,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 105900653713586438, guid: ed28dca31a3e53a4f9a6bafa469c124d, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 105900653713586438, guid: ed28dca31a3e53a4f9a6bafa469c124d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -37353,8 +37220,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1512920705}
   m_Layer: 0
-  m_Name: Sphere Spawn (2)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (2)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37930,7 +37797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3106001376673499001, guid: 108ff198777cf13418350c2367fc9e70, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3106001376673499001, guid: 108ff198777cf13418350c2367fc9e70, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -38279,8 +38146,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1564136251}
   m_Layer: 0
-  m_Name: Square Spawn (3)
-  m_TagString: SquareSpawn
+  m_Name: Rectangle Spawn (2)
+  m_TagString: RectangleSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39012,7 +38879,7 @@ GameObject:
   - component: {fileID: 1595607102}
   m_Layer: 0
   m_Name: Point Light
-  m_TagString: Untagged
+  m_TagString: Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39028,8 +38895,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 2.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1761345475}
-  m_RootOrder: 15
+  m_Father: {fileID: 302666026}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &1595607102
 Light:
@@ -39044,7 +38911,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.83137256, g: 0, b: 0.06666667, a: 1}
   m_Intensity: 8
-  m_Range: 5
+  m_Range: 6
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -39290,8 +39157,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1607195514}
   m_Layer: 0
-  m_Name: Square Spawn (4)
-  m_TagString: SquareSpawn
+  m_Name: Rectangle Spawn (3)
+  m_TagString: RectangleSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40442,8 +40309,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1658383461}
   m_Layer: 0
-  m_Name: Sphere Spawn (5)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (5)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41473,8 +41340,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1697544627}
   m_Layer: 0
-  m_Name: Sphere Spawn (26)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (26)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41569,8 +41436,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1701106809}
   m_Layer: 0
-  m_Name: Sphere Spawn (12)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (12)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41599,8 +41466,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1702696462}
   m_Layer: 0
-  m_Name: Sphere Spawn (21)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (21)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42876,9 +42743,9 @@ Transform:
   - {fileID: 1150446781}
   - {fileID: 1488239164}
   - {fileID: 660977698344849680}
-  - {fileID: 1595607101}
+  - {fileID: 302666026}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1761954511
 PrefabInstance:
@@ -43579,8 +43446,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1786695316}
   m_Layer: 0
-  m_Name: Square Spawn (5)
-  m_TagString: SquareSpawn
+  m_Name: Rectangle Spawn (4)
+  m_TagString: RectangleSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44706,8 +44573,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1809441088}
   m_Layer: 0
-  m_Name: Square Spawn (7)
-  m_TagString: SquareSpawn
+  m_Name: Rectangle Spawn (5)
+  m_TagString: RectangleSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44883,8 +44750,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1816729178}
   m_Layer: 0
-  m_Name: Sphere Spawn (27)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (27)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47739,8 +47606,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1926004495}
   m_Layer: 0
-  m_Name: Sphere Spawn (23)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (23)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48647,8 +48514,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1971977544}
   m_Layer: 0
-  m_Name: Sphere Spawn (1)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (1)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49357,8 +49224,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2004101443}
   m_Layer: 0
-  m_Name: Sphere Spawn (33)
-  m_TagString: SphereSpawn
+  m_Name: Square Spawn (33)
+  m_TagString: SquareSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49753,7 +49620,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2018567944
 PrefabInstance:
@@ -52527,7 +52394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3122963482877204458, guid: 1f7654b88e4561e4bb14a79dacc24e76, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.968
+      value: -4.327
       objectReference: {fileID: 0}
     - target: {fileID: 3122963482877204458, guid: 1f7654b88e4561e4bb14a79dacc24e76, type: 3}
       propertyPath: m_LocalRotation.x
@@ -52547,7 +52414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3122963482877204458, guid: 1f7654b88e4561e4bb14a79dacc24e76, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3122963482877204458, guid: 1f7654b88e4561e4bb14a79dacc24e76, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -52563,11 +52430,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3122963482877204458, guid: 1f7654b88e4561e4bb14a79dacc24e76, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.1965
+      value: 0.165
       objectReference: {fileID: 0}
     - target: {fileID: 3122963482877204458, guid: 1f7654b88e4561e4bb14a79dacc24e76, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.193
+      value: 0.42600012
       objectReference: {fileID: 0}
     - target: {fileID: 3122963482877204458, guid: 1f7654b88e4561e4bb14a79dacc24e76, type: 3}
       propertyPath: m_SizeDelta.x

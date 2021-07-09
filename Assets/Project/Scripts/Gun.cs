@@ -24,8 +24,6 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
-        GameController.shotsFired += 1;
-        GameController.sphereScore -= 1;
         animator.Play("Gun Fire");
         audioSource.PlayOneShot(fireAudioClip);
         GameObject spawnedGameObject = Instantiate(projectile, projectileSpawnTransform);

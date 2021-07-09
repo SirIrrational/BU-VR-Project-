@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2540441794840047542}
   m_Layer: 0
   m_Name: Platform Flat
-  m_TagString: Scene
+  m_TagString: Emissive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

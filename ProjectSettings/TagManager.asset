@@ -15,16 +15,18 @@ TagManager:
   - Home
   - Tour
   - Info
-  - Counter
-  - SphereSpawn
   - SquareSpawn
   - Square
-  - Sphere
   - Bounds
   - Hands
   - Gun
   - Projectile
   - Scene
+  - Rectangle
+  - RectangleSpawn
+  - Lamp
+  - Light
+  - Emissive
   layers:
   - Default
   - TransparentFX

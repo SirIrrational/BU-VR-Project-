@@ -5,10 +5,7 @@ using UnityEngine;
 public class Objects : MonoBehaviour
 {
     GameController gameController;
-    public int objectSpeed;
     AudioSource audioSource;
-    public AudioClip squareAudioClip;
-    public AudioClip sphereAudioClip;
 
     void Start()
     {
@@ -18,50 +15,56 @@ public class Objects : MonoBehaviour
 
     void Update()
     {
-        switch (gameObject.tag)
-        {
-            case "Sphere":
-                gameObject.transform.Translate(Vector3.back * objectSpeed * Time.deltaTime, Space.World);
-                gameObject.transform.Rotate(Vector3.left * 120 * Time.deltaTime);
-                break;
-            case "Square":
-                gameObject.transform.Translate(Vector3.right * objectSpeed * Time.deltaTime);
-                break;
-        }
+        Movement();
     }
 
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.tag == "Bounds")
         {
-            if (gameObject.tag == "Sphere")
-            {
-                GameController.spheresPresent -= 1;
-            }
-
-            Destroy(gameObject);
-        }
-
-        if (collider.tag == "Hands" || collider.tag == "MainCamera" || collider.tag == "Gun")
-        {
             if (gameObject.tag == "Square")
             {
-                GameController.sphereScore -= 20;
-                audioSource.PlayOneShot(squareAudioClip);
+                GameController.squaresPresent -= 1;
+            }
+            Destroy(gameObject);
+        }
+        if (collider.tag == "Hands" || collider.tag == "MainCamera" || collider.tag == "Gun")
+        {
+            if (gameObject.tag == "Rectangle")
+            {
+                GameController.squareScore -= 10;
+                audioSource.PlayOneShot(gameController.rectangleAudioClip);
             }
         }
-
         if (collider.tag == "Projectile")
         {
             switch (gameObject.tag)
             {
-                case "Sphere":
-                    audioSource.PlayOneShot(sphereAudioClip);
-                    break;
                 case "Square":
-                    audioSource.PlayOneShot(squareAudioClip);
+                    audioSource.PlayOneShot(gameController.squareAudioClip);
+                    break;
+                case "Rectangle":
+                    audioSource.PlayOneShot(gameController.rectangleAudioClip);
                     break;
             }
         }
+    }
+
+    void Movement()
+    {
+        switch (gameObject.tag)
+        {
+            case "Square":
+                gameObject.transform.Translate(Vector3.back * GameController.objectSpeed * Time.deltaTime, Space.World);
+                break;
+            case "Rectangle":
+                gameObject.transform.Translate(Vector3.right * GameController.objectSpeed * Time.deltaTime);
+                break;
+        }
+    }
+
+    void ObjectColour()
+    {
+
     }
 }

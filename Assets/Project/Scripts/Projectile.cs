@@ -18,20 +18,18 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.tag == "Sphere")
+        if (collider.tag == "Square")
         {
-            GameController.sphereScore += 10;
-            GameController.spheresPresent -= 1;
+            GameController.squareScore += 10;
+            GameController.squaresPresent -= 1;
             Destroy(collider.gameObject);
             Destroy(gameObject);
         }
-
-        if (collider.tag == "Square")
+        if (collider.tag == "Rectangle")
         {
-            GameController.sphereScore -= 10;
+            GameController.squareScore -= 5;
             Destroy(gameObject);
         }
-
         if (collider.tag == "Scene")
         {
             Destroy(gameObject);
@@ -40,7 +38,7 @@ public class Projectile : MonoBehaviour
 
     IEnumerator DestroyDelay()
     {
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(8f);
         Destroy(gameObject);
     }
 }

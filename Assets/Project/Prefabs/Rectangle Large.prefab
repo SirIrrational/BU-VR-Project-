@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: -8262323841558581653}
   - component: {fileID: 2720156346791626384}
   m_Layer: 0
-  m_Name: Square Large
-  m_TagString: Square
+  m_Name: Rectangle Large
+  m_TagString: Rectangle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectSpeed: 4
-  squareAudioClip: {fileID: 8300000, guid: 0f3df064015782c4faf680c2fa16ff91, type: 3}
-  sphereAudioClip: {fileID: 8300000, guid: d4f09000f21dc024681f96ccd80d8f71, type: 3}
+  squareAudioClip: {fileID: 8300000, guid: d4f09000f21dc024681f96ccd80d8f71, type: 3}
+  rectangleAudioClip: {fileID: 8300000, guid: 0f3df064015782c4faf680c2fa16ff91, type: 3}
 --- !u!54 &-2444174012549737652
 Rigidbody:
   m_ObjectHideFlags: 0

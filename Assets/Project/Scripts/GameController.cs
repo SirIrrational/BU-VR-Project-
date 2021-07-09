@@ -10,61 +10,91 @@ public class GameController : MonoBehaviour
     public GameObject vrRigPrefab;
     public GameObject playButton;
     public GameObject homeButton;
-    public GameObject sphere;
-    public GameObject[] squares;
-    public int spheresToSpawn;
+    public GameObject counter;
+    public GameObject square;
+    public GameObject[] rectangles;
+    public int squaresToSpawn;
     public int minSpawnDelay;
     public int maxSpawnDelay;
-    public static int sphereScore = 0;
-    public static int shotsFired = 0;
-    public static int spheresPresent;
-    int spheresSpawned;
-    GameObject[] counters;
-    GameObject[] sphereSpawns;
+    public float colourLerpTime;
+    public int[] levelSpeed;
+    public int[] levelRequiredScore;
+    public Color[] levelColours;
+    public AudioClip squareAudioClip;
+    public AudioClip rectangleAudioClip;
+    public static int squareScore = 0;
+    public static int squaresPresent = 0;
+    public static int objectSpeed = 0;
+    public static int levelState = 0;
+    int squaresSpawned;
+    GameObject[] rectangleSpawns;
     GameObject[] squareSpawns;
-    Transform[] sphereSpawnTransforms;
+    GameObject[] lamps;
+    GameObject[] platforms;
+    GameObject[] lights;
+    MeshRenderer[] lampMeshRenderers;
+    MeshRenderer[] platformsMeshRenderers;
+    Light[] lampLights;
+    Light[] lightLights;
+    Transform[] rectangleSpawnTransforms;
     Transform[] squareSpawnTransforms;
-    Counter[] counter;
     bool endActivated = false;
     XRRayInteractor[] xrRayInteractor;
     AudioSource audioSource;
+    Text[] counterTexts;
+    float[] lerpTimer = { 0, 0, 0 };
+    Color tempColour;
     
     void Start()
     {
-        // Instantiates arrays linked to both counters
-        counters = GameObject.FindGameObjectsWithTag("Counter");
-        sphereSpawns = GameObject.FindGameObjectsWithTag("SphereSpawn");
+        // Instantiates arrays
         squareSpawns = GameObject.FindGameObjectsWithTag("SquareSpawn");
-        counter = new Counter[counters.Length];
-        sphereSpawnTransforms = new Transform[sphereSpawns.Length];
+        rectangleSpawns = GameObject.FindGameObjectsWithTag("RectangleSpawn");
+        lamps = GameObject.FindGameObjectsWithTag("Lamp");
+        platforms = GameObject.FindGameObjectsWithTag("Emissive");
+        lights = GameObject.FindGameObjectsWithTag("Light");
         squareSpawnTransforms = new Transform[squareSpawns.Length];
+        rectangleSpawnTransforms = new Transform[rectangleSpawns.Length];
+        lampMeshRenderers = new MeshRenderer[lamps.Length];
+        platformsMeshRenderers = new MeshRenderer[platforms.Length];
+        lampLights = new Light[lamps.Length];
+        lightLights = new Light[lights.Length];
         xrRayInteractor = vrRigPrefab.GetComponentsInChildren<XRRayInteractor>();
-        for (int index = 0; index < counters.Length; index++)
-        {
-            counter[index] = counters[index].GetComponent<Counter>();
-        }
-        for (int index = 0; index < sphereSpawns.Length; index++)
-        {
-            sphereSpawnTransforms[index] = sphereSpawns[index].transform;
-        }
+        audioSource = gameObject.GetComponent<AudioSource>();
+        counterTexts = counter.GetComponentsInChildren<Text>();
+        counterTexts[0].text = "Score";
+        tempColour = RenderSettings.fogColor;
         for (int index = 0; index < squareSpawns.Length; index++)
         {
             squareSpawnTransforms[index] = squareSpawns[index].transform;
         }
-        audioSource = gameObject.GetComponent<AudioSource>();
+        for (int index = 0; index < rectangleSpawns.Length; index++)
+        {
+            rectangleSpawnTransforms[index] = rectangleSpawns[index].transform;
+        }
+        for (int index = 0; index < lamps.Length; index++)
+        {
+            lampMeshRenderers[index] = lamps[index].GetComponent<MeshRenderer>();
+            lampMeshRenderers[index].material.EnableKeyword("_EMISSION");
+            lampLights[index] = lamps[index].GetComponentInChildren<Light>();
+        }
+        for (int index = 0; index < platforms.Length; index++)
+        {
+            platformsMeshRenderers[index] = platforms[index].GetComponent<MeshRenderer>();
+            platformsMeshRenderers[index].material.EnableKeyword("_EMISSION");
+        }
+        for (int index = 0; index < lights.Length; index++)
+        {
+            lightLights[index] = lights[index].GetComponent<Light>();
+        }
         Restart();
     }
 
     void Update()
     {
-        // Send both scores to UI
-        counter[0].value.text = sphereScore.ToString();
-        counter[1].value.text = shotsFired.ToString();
-
-        if (endActivated)
-        {
-            End();
-        }
+        End();
+        Levels();
+        LerpTimer();
     }
 
     // Starts the game
@@ -75,12 +105,7 @@ public class GameController : MonoBehaviour
             xrRayInteractor[index].enabled = false;
         }
         playButton.SetActive(false);
-        sphereScore = 0;
-        shotsFired = 0;
-        counter[0].Title.text = "Score";
-        counter[1].Title.text = "Shots Fired";
-        counter[0].image.enabled = false;
-        counter[1].image.enabled = false;
+        squareScore = 0;
         StartCoroutine(SpawnDelay());
         audioSource.Play();
     }
@@ -90,51 +115,46 @@ public class GameController : MonoBehaviour
         switch (Random.Range(0 , 4))
         {
             case 0:
-                SphereSpawn();
-                break;
-
-            case 1:
-                SphereSpawn();
-                break;
-
-            case 2:
-                SphereSpawn();
-                break;
-
-            case 3:
                 SquareSpawn();
                 break;
+            case 1:
+                SquareSpawn();
+                break;
+            case 2:
+                SquareSpawn();
+                break;
+            case 3:
+                RectangleSpawn();
+                break;
         }
-
-        if (spheresSpawned < spheresToSpawn)
+        if (squaresSpawned < squaresToSpawn)
         {
             StartCoroutine(SpawnDelay());
         }
-
-        if (spheresSpawned >= spheresToSpawn)
+        if (squaresSpawned >= squaresToSpawn)
         {
             endActivated = true;
         }
     }
 
-    void SphereSpawn()
-    {
-        GameObject sphereTarget = Instantiate(sphere, sphereSpawnTransforms[Random.Range(0, sphereSpawnTransforms.Length)]);
-        spheresSpawned += 1;
-        spheresPresent += 1;
-    }
-
     void SquareSpawn()
     {
-        GameObject squareTarget = Instantiate(squares[Random.Range(0, squares.Length)], squareSpawnTransforms[Random.Range(0, squareSpawnTransforms.Length)]);
+        GameObject squareTarget = Instantiate(square, squareSpawnTransforms[Random.Range(0, squareSpawnTransforms.Length)]);
+        squaresSpawned += 1;
+        squaresPresent += 1;
+    }
+
+    void RectangleSpawn()
+    {
+        GameObject rectangleTarget = Instantiate(rectangles[Random.Range(0, rectangles.Length)], rectangleSpawnTransforms[Random.Range(0, rectangleSpawnTransforms.Length)]);
 
         switch (Random.Range(0, 2))
         {
             case 0:
-                squareTarget.transform.Rotate(0f, 0f, 0f);
+                rectangleTarget.transform.Rotate(0f, 0f, 0f);
                 break;
             case 1:
-                squareTarget.transform.Rotate(90f, 0f, 0f);
+                rectangleTarget.transform.Rotate(90f, 0f, 0f);
                 break;
         }
     }
@@ -145,31 +165,118 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
     }
 
-    //Resets all game variables
+    //Resets all static variables
     void Restart()
     {
-        playButton.SetActive(true);
-        homeButton.SetActive(false);
-        counter[0].Title.text = "Shoot";
-        counter[1].Title.text = "Dodge";
-        counter[0].image.enabled = true;
-        counter[1].image.enabled = true;
-        spheresSpawned = 0;
-        spheresPresent = 0;
-        endActivated = false;
+        squaresSpawned = 0;
+        squaresPresent = 0;
+        levelState = 0;
+        objectSpeed = 0;
     }
 
     void End()
     {
-        if (spheresPresent <= 0)
+        if (endActivated)
         {
-            for (int index = 0; index < xrRayInteractor.Length; index++)
+            if (squaresPresent <= 0)
             {
-                xrRayInteractor[index].enabled = true;
+                for (int index = 0; index < xrRayInteractor.Length; index++)
+                {
+                    xrRayInteractor[index].enabled = true;
+                }
+                homeButton.SetActive(true);
+                audioSource.Stop();
             }
-            homeButton.SetActive(true);
-            audioSource.Stop();
         }
+    }
+
+    void Levels()
+    {
+        counterTexts[1].text = squareScore.ToString();
+
+        if (squareScore >= levelRequiredScore[0] && squareScore <= levelRequiredScore[1])
+        {       
+            objectSpeed = levelSpeed[0];
+            levelState = 0;         
+        }
+        else if (squareScore >= levelRequiredScore[1] && squareScore < levelRequiredScore[2])
+        {          
+            objectSpeed = levelSpeed[1];
+            levelState = 1;        
+        }
+        else if (squareScore >= levelRequiredScore[2])
+        {           
+            objectSpeed = levelSpeed[2];
+            levelState = 2;      
+        }
+
+        Lighting();
+    }
+
+    void Lighting()
+    {
+        tempColour = RenderSettings.fogColor;
+
+        void LightingLoop(Color newColour)
+        {
+            for (int index = 0; index < lampMeshRenderers.Length; index++)
+            {
+                lampMeshRenderers[index].materials[1].SetColor("_EmissionColor", newColour * 2.25f);
+                lampLights[index].color = newColour;
+            }
+            for (int index = 0; index < platformsMeshRenderers.Length; index++)
+            {
+                platformsMeshRenderers[index].materials[0].SetColor("_EmissionColor", newColour * 2.25f);
+            }
+            for (int index = 0; index < lightLights.Length; index++)
+            {
+                lightLights[index].color = newColour;
+            }
+
+            RenderSettings.fogColor = newColour;
+        }
+
+        Color ColourLerp(Color originalColour, Color newColour, float lerpTimer)
+        {
+            return Color.Lerp(originalColour, newColour, lerpTimer);
+        }
+
+        switch (levelState)
+        {
+            case 0:
+                LightingLoop(ColourLerp(tempColour, levelColours[0], lerpTimer[0]));
+                lerpTimer[1] = 0;
+                lerpTimer[2] = 0;
+                break;
+            case 1:              
+                LightingLoop(ColourLerp(tempColour, levelColours[1], lerpTimer[1]));
+                lerpTimer[0] = 0;
+                lerpTimer[2] = 0;
+                break;
+            case 2: 
+                LightingLoop(ColourLerp(tempColour, levelColours[2], lerpTimer[2]));
+                lerpTimer[0] = 0;
+                lerpTimer[1] = 0;
+                break;
+        }
+    }
+
+    void LerpTimer()
+    {
+        switch (levelState)
+        {
+            case 0:
+                lerpTimer[0] += Time.deltaTime / colourLerpTime;
+                break;
+            case 1:
+                lerpTimer[1] += Time.deltaTime / colourLerpTime;
+                break;
+            case 2:
+                lerpTimer[2] += Time.deltaTime / colourLerpTime;
+                break;
+        }
+
+  
     }
 
     IEnumerator SpawnDelay()
