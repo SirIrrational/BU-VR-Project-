@@ -5,6 +5,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float projectileSpeed;
+    public int squareScore;
+    public int rectangleShotScore;
 
     void Start()
     {
@@ -20,25 +22,21 @@ public class Projectile : MonoBehaviour
     {
         if (collider.tag == "Square")
         {
-            GameController.squareScore += 10;
+            GameController.squareScore += squareScore;
             GameController.squaresPresent -= 1;
             Destroy(collider.gameObject);
             Destroy(gameObject);
         }
         if (collider.tag == "Rectangle")
         {
-            GameController.squareScore -= 5;
-            Destroy(gameObject);
-        }
-        if (collider.tag == "Scene")
-        {
+            GameController.squareScore -= rectangleShotScore;
             Destroy(gameObject);
         }
     }
 
     IEnumerator DestroyDelay()
     {
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(6f);
         Destroy(gameObject);
     }
 }

@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public GameObject vrRigPrefab;
     public GameObject playButton;
     public GameObject homeButton;
+    public GameObject tutorialUI;
     public GameObject counter;
     public GameObject square;
     public GameObject[] rectangles;
@@ -105,6 +106,7 @@ public class GameController : MonoBehaviour
             xrRayInteractor[index].enabled = false;
         }
         playButton.SetActive(false);
+        tutorialUI.SetActive(false);
         squareScore = 0;
         StartCoroutine(SpawnDelay());
         audioSource.Play();
@@ -221,12 +223,12 @@ public class GameController : MonoBehaviour
         {
             for (int index = 0; index < lampMeshRenderers.Length; index++)
             {
-                lampMeshRenderers[index].materials[1].SetColor("_EmissionColor", newColour * 2.25f);
+                lampMeshRenderers[index].materials[1].SetColor("_EmissionColor", newColour * 2.15f);
                 lampLights[index].color = newColour;
             }
             for (int index = 0; index < platformsMeshRenderers.Length; index++)
             {
-                platformsMeshRenderers[index].materials[0].SetColor("_EmissionColor", newColour * 2.25f);
+                platformsMeshRenderers[index].materials[0].SetColor("_EmissionColor", newColour * 2.15f);
             }
             for (int index = 0; index < lightLights.Length; index++)
             {
@@ -275,8 +277,6 @@ public class GameController : MonoBehaviour
                 lerpTimer[2] += Time.deltaTime / colourLerpTime;
                 break;
         }
-
-  
     }
 
     IEnumerator SpawnDelay()
